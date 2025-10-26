@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>skin care arurveda </title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+:root {
+    --primary-green: #4CAF50;
+    --secondary-green: #388E3C;
+    --light-bg-green: #d8e6d8;
+    --quick-view-btn-green: #66BB6A;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--light-bg-green);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+.navbar {
+    background-color: var(--secondary-green);
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}
+.plant-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 30px auto;
+    gap: 20px;
+}
+.plant-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+    width: calc(25% - 15px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.plant-card h2 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    padding: 0 10px;
+    text-align: left;
+}
+.plant-image-container {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.plant-image-container iframe {
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border:none;
+}
+.quick-view-wrapper { padding: 10px; }
+.quick-view-btn {
+    background-color: var(--quick-view-btn-green);
+    color: white;
+    border: none;
+    padding: 10px 0;
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background-color 0.2s;
+    border-radius: 5px;
+}
+.quick-view-btn:hover { background-color: var(--primary-green); }
+
+/* Modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(3px);
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px 30px;
+    border-radius: 10px;
+    width: 90%; 
+    max-width: 700px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-top: 5px solid var(--secondary-green);
+}
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 36px;
+    font-weight: normal;
+    cursor: pointer;
+    margin-top: -5px;
+}
+.modal-header h3 { color: var(--secondary-green); font-size: 2em; margin: 0 0 10px 0; text-align:center;}
+.modal-body .modal-image-container {
+    width: 300px;   
+    height: 300px;  
+    border-radius: 50%; 
+    overflow: hidden;
+    margin: 10px auto 20px auto;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border: 3px solid var(--primary-green);
+}
+
+.modal-body .modal-image-container iframe { width:100%; height:100%; border:none; }
+.modal-body p { margin: 10px 0; }
+.modal-body strong { font-weight: bold; color: var(--secondary-green); display: block; margin-top: 15px; font-size:1.1em; }
+@media(max-width:1000px){ .plant-card { width: calc(50% - 15px); } }
+@media(max-width:600px){ .plant-card { width: 100%; } }
+</style>
+</head>
+<body>
+
+<header class="navbar">
+    <h1>Skin Care Plants</h1>
+</header>
+
+<div class="plant-grid">
+
+    <div class="plant-card" data-plant="Sandalwood">
+    <h2>Sandalwood</h2>
+    <div class="plant-image-container">
+        <iframe src="https://sketchfab.com/3d-models/santalum-album-indian-sandalwood-8cefe7b8b75641869fa67c2a5e0cf855/embed" allowfullscreen></iframe>
+    </div>
+    <div class="quick-view-wrapper">
+        <button class="quick-view-btn" data-plant-name="Sandalwood">QUICK VIEW</button>
+    </div>
+</div>
+
+<div class="plant-card" data-plant="Lemon">
+    <h2>Lemon</h2>
+    <div class="plant-image-container">
+        <iframe src="https://sketchfab.com/3d-models/lemon-trees-7ddb656429914056a1f2870ed7792e6a/embed" allowfullscreen></iframe>
+    </div>
+    <div class="quick-view-wrapper">
+        <button class="quick-view-btn" data-plant-name="Lemon">QUICK VIEW</button>
+    </div>
+</div>
+
+<div class="plant-card" data-plant="Papaya">
+    <h2>Papaya</h2>
+    <div class="plant-image-container">
+        <iframe src="https://sketchfab.com/3d-models/3d-papaya-tree-4c18819a1b2d4b34865f2cfaba02afe0/embed" allowfullscreen></iframe>
+    </div>
+    <div class="quick-view-wrapper">
+        <button class="quick-view-btn" data-plant-name="Papaya">QUICK VIEW</button>
+    </div>
+</div>
+
+<div class="plant-card" data-plant="Rose">
+    <h2>Rose</h2>
+    <div class="plant-image-container">
+        <iframe src="https://sketchfab.com/3d-models/rose-flower-88ec44af458146a3b83b9483afe8af7a/embed" allowfullscreen></iframe>
+    </div>
+    <div class="quick-view-wrapper">
+        <button class="quick-view-btn" data-plant-name="Rose">QUICK VIEW</button>
+    </div>
+</div>
+
+
+<div id="quick-view-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div class="modal-header"></div>
+        <div class="modal-body"></div>
+    </div>
+</div>
+
+<script>
+const plantData = {
+    
+    Sandalwood: {
+    scientificName: 'Santalum album',
+    image: 'https://sketchfab.com/3d-models/santalum-album-indian-sandalwood-8cefe7b8b75641869fa67c2a5e0cf855/embed',
+    info: 'Ancient aromatic heart-wood used for skin treatment, ritual, and fragrance.',
+    advantages: 'Anti-inflammatory, antimicrobial, even skin tone, enhances skin elasticity. :contentReference[oaicite:1]{index=1}',
+    disadvantages: 'High cost; potential skin irritation in sensitive individuals; over-harvesting makes sustainable supply limited. :contentReference[oaicite:2]{index=2}',
+    uses: 'Used in face-masks, sandalwood paste for cooling the skin, essential-oil blends for skincare & meditation. :contentReference[oaicite:3]{index=3}'
+},
+
+    Lemon: {
+    scientificName: 'Citrus limon',
+    image: 'https://sketchfab.com/3d-models/lemon-trees-7ddb656429914056a1f2870ed7792e6a/embed',
+    info: 'Rich in Vitamin C and citric acid; used for brightening skin and reducing oiliness.',
+    advantages: 'Antioxidant-rich, supports collagen production, helps reduce dark spots and uneven tone. :contentReference[oaicite:0]{index=0}',
+    disadvantages: 'Highly acidic when applied topically — may cause irritation, increased sun sensitivity, dryness or peeling. :contentReference[oaicite:1]{index=1}',
+    uses: 'Used in skincare masks, toners or scrubs; diluted lemon juice or extracts to brighten skin, reduce oil and fade blemishes. :contentReference[oaicite:2]{index=2}'
+},
+
+    Papaya: {
+    scientificName: 'Carica papaya',
+    image: 'https://sketchfab.com/3d-models/3d-papaya-tree-4c18819a1b2d4b34865f2cfaba02afe0/embed',
+    info: 'Tropical fruit rich in enzymes and vitamins which exfoliate dead skin, brighten tone and improve radiance. ',
+    advantages: 'Contains papain enzyme that gently removes dead skin cells, high vitamin C and lycopene to boost collagen and fight aging. :contentReference[oaicite:0]{index=0}',
+    disadvantages: 'May cause skin sensitivity if applied wrongly (especially raw); those with latex or fruit allergies should use cautiously. :contentReference[oaicite:1]{index=1}',
+    uses: 'Used in face-packs or masks for skin brightening and exfoliation; included in skincare products to reduce dark spots and smooth texture. :contentReference[oaicite:2]{index=2}'
+},
+
+    Rose: {
+    scientificName: 'Rosa spp.',
+    image: 'https://sketchfab.com/3d-models/rose-flower-88ec44af458146a3b83b9483afe8af7a/embed',
+    info: 'Renowned for its soothing, anti-inflammatory, and antioxidant-rich properties, making it a staple in skincare.',
+    advantages: 'Reduces redness and irritation, tones and hydrates skin, and offers anti-aging benefits. Rose extract helps to reduce redness and calm the skin for a more even-toned complexion and is great for rebalancing dry, irritated, and sensitive skin. :contentReference[oaicite:0]{index=0}',
+    disadvantages: 'May cause irritation for sensitive individuals due to natural fragrance; alcohol-based formulations can be drying. :contentReference[oaicite:1]{index=1}',
+    uses: 'Commonly used in toners, mists, and creams for its soothing and hydrating effects. Rose water acts as an inhibitor against elastase and collagenase, which are both harmful to the skin. This, in turn, can help soothe the skin and reduce redness, as well as act as an anti-aging product by reducing the appearance of lines and wrinkles. :contentReference[oaicite:2]{index=2}'
+}
+
+};
+
+const modal = document.getElementById('quick-view-modal');
+const modalHeader = modal.querySelector('.modal-header');
+const modalBody = modal.querySelector('.modal-body');
+const closeBtn = modal.querySelector('.close-btn');
+const quickViewBtns = document.querySelectorAll('.quick-view-btn');
+
+function showPlantDetails(plantName) {
+    const data = plantData[plantName];
+    modalHeader.innerHTML = `<h3>${plantName}</h3>`;
+    modalBody.innerHTML = `
+        <div class="modal-image-container">
+            <iframe src="${data.image}" allowfullscreen></iframe>
+        </div>
+        <p><strong>Scientific Name:</strong> ${data.scientificName}</p>
+        <p><strong>Info:</strong> ${data.info}</p>
+        <p><strong>Advantages:</strong> ${data.advantages}</p>
+        <p><strong>Disadvantages:</strong> ${data.disadvantages}</p>
+        <p><strong>Uses:</strong> ${data.uses}</p>
+    `;
+    modal.style.display = 'block';
+}
+
+quickViewBtns.forEach(btn => {
+    btn.addEventListener('click', (e)=>{
+        const plantName = e.target.getAttribute('data-plant-name');
+        showPlantDetails(plantName);
+    });
+});
+
+closeBtn.addEventListener('click', ()=>{ modal.style.display='none'; });
+window.addEventListener('click',(e)=>{ if(e.target===modal){ modal.style.display='none'; } });
+document.addEventListener('keydown',(e)=>{ if(e.key==='Escape'){ modal.style.display='none'; } });
+</script>
+
+</body>
+</html>

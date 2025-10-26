@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<head>
+    
+    <title>Ayurveda Plants Explorer</title>
+  
+          
+    <link rel="stylesheet" href="{{ url_for('static', filename='p1.css') }}">
+
+
+</head>
+<body>
+    <header id="navbar">
+        <div class="nav-logo">
+            <div class="logo"></div>
+            <div class="nav-title">Ayurveda</div>
+        </div>
+        
+        <nav class="nav-links">
+            <ul>
+                <li><a href="#home-section">Home</a></li>
+                <li><a href="#" class="open-popup-link" data-modal-id="about-modal">About the App</a></li>
+                <li><a href="#" class="open-popup-link" data-modal-id="howto-modal">How to Use</a></li>
+                <li><a href="#" class="open-popup-link" data-modal-id="benefits-modal">Ayurveda Benefits</a></li>
+                <li><a href="#contact-footer">Contact</a></li>
+      
+                 <a href="{{ url_for('login_page') }}">Login</a>
+
+            </ul>
+        </nav>
+
+        <div class="nav-search">
+            <input type="text" id="search-input" placeholder="Search plants...">
+<div id="search-results"></div>
+
+            <button>🔍</button>
+            
+        </div>
+    </header>
+    
+
+
+    <section class="hero-section" id="home-section">
+        <div class="hero-msg">
+            <h1>🌱 Explore Ayurveda Plants</h1>
+            <p>Click on a plant to see its benefits, advantages, and 3D model.</p>
+        </div>
+    </section>
+
+    <section class="shop-section">
+
+        <div class="box" 
+             data-name="Neem" 
+             data-info=" is antibacterial and antifungal."
+             data-advantages="Good for skin, boosts immunity, cleans teeth. Neem is very useful in Ayurveda because it keeps the body safe from infections. It has strong antibacterial and antifungal powers. Neem helps clean the skin, reduce pimples, improve oral health, and boost overall immunity."
+             data-disadvantages="Neem is very bitter, and if eaten in large amounts it may cause nausea or stomach problems. Pregnant women and small children should avoid using it. Too much neem oil can also be harmful."
+             data-uses="Neem leaves, oil, and twigs are used — for skincare, making herbal medicines, toothpaste, and natural remedies."
+             data-benefits="Neem helps treat acne, purify the blood, improve oral hygiene, and strengthen the body’s immunity."
+             data-model="https://sketchfab.com/models/03edef8009d942d3a3db6fa64cecbe56/embed">
+            <h2>Neem</h2>
+            <iframe src="https://sketchfab.com/models/03edef8009d942d3a3db6fa64cecbe56/embed" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
+            <p>Quick View</p>
+        </div>
+
+        <div class="box" 
+             data-name="Tulsi" 
+             data-info="Tulsi boosts immunity and reduces stress."
+             data-advantages="Tulsi boosts immunity, helps relieve cold, cough, and respiratory problems. It has strong antibacterial, antifungal, and antioxidant properties that keep the body healthy."
+             data-disadvantages="Consuming too much Tulsi may lower blood sugar or cause mild stomach upset. Pregnant women should use it carefully."
+             data-uses="Used as leaves, extracts, and in teas or Ayurvedic medicines to treat infections and improve overall health."
+             data-benefits="Improves immunity, reduces stress, purifies blood, supports heart health, and helps fight infections naturally."
+             data-model="https://sketchfab.com/models/cfa1d5a4e84e4094937c79cd2e7c2c9d/embed">
+            <h2>Tulsi</h2>
+            <iframe src="https://sketchfab.com/models/cfa1d5a4e84e4094937c79cd2e7c2c9d/embed" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
+            <p>Quick View</p>
+        </div>
+
+        <div class="box" 
+             data-name="Ashwagandha" 
+             data-info="Ashwagandha reduces stress and improves strength."
+             data-advantages="Ashwagandha helps reduce stress and anxiety, improves energy and stamina, and supports overall immunity. It has adaptogenic properties, meaning it helps the body cope with physical and mental stress."
+             data-disadvantages="High doses may cause stomach upset, diarrhea, or drowsiness. Pregnant women should avoid it, and people with certain medical conditions should consult a doctor before use."
+             data-uses="Roots and leaves are commonly used in powders, capsules, teas, and Ayurvedic medicines."
+             data-benefits="Reduces stress, boosts energy, improves mental focus, strengthens immunity, and supports overall well-being."
+             data-model="https://sketchfab.com/models/c6876e8e2fc44ca8a56342d3cc67febf/embed">
+            <h2>Ashwagandha</h2>
+            <iframe src="https://sketchfab.com/models/c6876e8e2fc44ca8a56342d3cc67febf/embed" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
+            <p>Quick View</p>
+        </div>
+
+        <div class="box" 
+             data-name="Aloe Vera" 
+             data-info="Aloe Vera heals skin and aids digestion."
+             data-advantages="Aloe Vera is widely known for its soothing and healing properties. It helps calm irritated skin, promotes faster healing of burns and wounds, moisturizes dry skin, and has antibacterial and anti-inflammatory effects. It also supports digestion and boosts the immune system."
+             data-disadvantages="Consuming too much Aloe Vera latex (the yellow sap) can cause stomach cramps or diarrhea. Some people may have allergic reactions to Aloe Vera gel or products. Pregnant women should avoid consuming large amounts internally."
+             data-uses="Aloe Vera is used in multiple forms: as gel applied directly to the skin for burns and wounds, as juice for digestive health, in creams and lotions for skincare, and as a component in Ayurvedic medicines for overall wellness."
+             data-benefits="Aloe Vera helps heal burns and wounds, moisturizes and rejuvenates skin, improves digestion, purifies blood, strengthens immunity, and promotes overall health."
+             data-model="https://sketchfab.com/models/66c6699e50ab4863989777f920a981dd/embed">
+            <h2>Aloe Vera</h2>
+            <iframe src="https://sketchfab.com/models/66c6699e50ab4863989777f920a981dd/embed" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
+            <p>Quick View</p>
+        </div>
+
+        <div class="box" 
+             data-name="Haldi (Turmeric)" 
+             data-info="Haldi is widely used in Ayurveda for its healing and anti-inflammatory properties."
+             data-advantages="Haldi is a powerful natural ingredient with strong anti-inflammatory, antibacterial, and antioxidant properties. It helps improve skin health, aids in healing wounds, supports immunity, and can reduce inflammation in the body. It’s widely used in cooking as well as in medicinal remedies."
+             data-disadvantages="Excessive consumption of Haldi may cause stomach upset, nausea, or heartburn. People with gallbladder problems or those taking blood-thinning medications should use it carefully."
+             data-uses="Turmeric is used as a spice in cooking, as a paste for skincare and wound healing, in teas, and in Ayurvedic medicines for treating infections, improving digestion, and boosting overall health."
+             data-benefits="Haldi helps improve immunity, reduces inflammation, promotes healthy skin, aids digestion, purifies blood, and supports overall well-being."
+             data-model="https://sketchfab.com/models/55407296d92a47ad8c8482c56dc656e1/embed">
+            <h2>Haldi (Turmeric)</h2>
+            <iframe src="https://sketchfab.com/models/55407296d92a47ad8c8482c56dc656e1/embed" 
+                    width="100%" height="200" frameborder="0" allowfullscreen>
+            </iframe>
+            <p>Quick View</p>
+        </div>
+
+        <div class="box" 
+             data-name="Brahmi" 
+             data-info="Brahmi is used in Ayurveda to enhance memory and mental clarity." 
+             data-advantages="Brahmi is a renowned Ayurvedic herb known for improving mental health and cognitive functions. It enhances memory, concentration, and learning ability. It also has antioxidant, antibacterial, and anti-inflammatory properties, which help in reducing stress, calming the mind, and protecting the nervous system." 
+             data-disadvantages="Excessive use may cause nausea, diarrhea, or fatigue. Pregnant women and people with low blood pressure should consult a doctor before using it." 
+             data-uses="Brahmi is commonly used as leaves, powders, capsules, and in oils. It’s applied in brain-boosting tonics, hair oils, teas, and Ayurvedic medicines for mental and nervous system health." 
+             data-benefits="Brahmi improves memory and concentration, reduces stress and anxiety, supports brain and nervous system health, purifies the blood, and strengthens overall immunity" 
+             data-model="https://sketchfab.com/models/24fc0ecfccc74f589ec4abe443514ba1/embed">
+            <h2>Brahmi</h2>
+            <iframe src="https://sketchfab.com/models/24fc0ecfccc74f589ec4abe443514ba1/embed" 
+                    width="100%" height="200" frameborder="0" allowfullscreen>
+            </iframe>
+            <p>Quick View</p>
+        </div>
+
+        <div class="box" 
+             data-name="Amla" 
+             data-info="Amla is rich in Vitamin C and used for immunity and skin health."
+             data-advantages="Amla is rich in vitamin C and antioxidants, making it excellent for boosting immunity, improving skin health, and fighting infections. It supports digestion, helps in detoxifying the body, and strengthens hair and nails. Amla is also beneficial for managing blood sugar and cholesterol levels."
+             data-disadvantages="Excessive consumption may cause stomach upset, diarrhea, or acidity. People with certain digestive disorders should use it carefully."
+             data-uses="Amla is used in raw form, juice, powders, oils, and Ayurvedic medicines. It’s commonly incorporated in hair oils, health tonics, jams, and dietary supplements"
+             data-benefits="Amla strengthens immunity, improves digestion, enhances skin and hair health, purifies blood, regulates cholesterol and blood sugar, and promotes overall wellness."
+             data-model="https://sketchfab.com/models/60ab2bc091674382a086391613e65d6f/embed">
+            <h2>Amla</h2>
+            <iframe src="https://sketchfab.com/models/60ab2bc091674382a086391613e65d6f/embed" 
+                    width="100%" height="200" frameborder="0" allowfullscreen></iframe>
+            <p>Quick View</p>
+        </div>
+
+        <div class="box" 
+             data-name="Bodhi Tree" 
+             data-info="The Bodhi Tree, under which Lord Buddha attained enlightenment, is "
+             data-advantages="The Bodhi tree is revered in Ayurveda and spiritual traditions for its calming and healing properties. Its leaves and bark have anti-inflammatory, antibacterial, and antioxidant effects. It helps improve respiratory health, supports heart function, and can aid in managing diabetes. It is also believed to promote mental calmness and reduce stress"
+             data-disadvantages="Excessive use of Bodhi tree extracts may cause mild stomach upset in sensitive individuals. Pregnant or breastfeeding women should consult a doctor before using it"
+             data-uses="The leaves, bark, and seeds of the Bodhi tree are used in teas, powders, decoctions, and Ayurvedic medicines. They are applied for respiratory issues, digestive health, and general wellness."
+             data-benefits="Bodhi tree supports heart and respiratory health, reduces inflammation, helps manage blood sugar, purifies blood, relieves stress, and promotes overall well-being."
+             data-model="https://sketchfab.com/models/943594369dc84239bc140e6e7d07a005/embed">
+            <h2>Bodhi Tree</h2>
+            <iframe src="https://sketchfab.com/models/943594369dc84239bc140e6e7d07a005/embed" 
+                    width="100%" height="200" frameborder="0" allowfullscreen></iframe>
+            <p>Quick View</p>
+        </div>
+
+
+<section class="categories-section">
+  <h1 class="centered">Look by categories</h1>
+
+  <div class="category-grid">
+
+    <a href="{{ url_for('oral') }}" class="category-card">
+      <div class="category-box">
+        <img src="https://i.pinimg.com/736x/6e/e3/c1/6ee3c1d2d54e55f031f1dbaa171b4647.jpg" alt="Oral Health">
+        <p>Oral Health</p>
+      </div>
+    </a>
+
+    <a href="{{ url_for('skin') }}" class="category-card">
+      <div class="category-box">
+        <img src="https://i.pinimg.com/736x/96/2e/b3/962eb372cb5a40091f3a292878019b38.jpg" alt="Skin Care">
+        <p>Skin Care</p>
+      </div>
+    </a>
+
+    <a href="{{ url_for('mental') }}" class="category-card">
+      <div class="category-box">
+        <img src="https://i.pinimg.com/1200x/dd/18/36/dd18361ef71c9d8968d34ebd3a6a75af.jpg" alt="Mental Health Care">
+        <p>Mental Health Care</p>
+      </div>
+    </a>
+
+    <a href="#" class="category-card">
+      <div class="category-box">
+        <img src="https://i.pinimg.com/736x/e7/8d/21/e78d21684741e6940c361989cf57ec35.jpg" alt="Respiratory Health">
+        <p>Respiratory Health</p>
+      </div>
+    </a>
+
+    <a href="#" class="category-card">
+      <div class="category-box">
+        <img src="https://i.pinimg.com/736x/d5/a8/5d/d5a85df39c654d4a14a34cbefce6e1f0.jpg" alt="Immunity Booster">
+        <p>Immunity Booster</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+
+            
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close plant-close">&times;</span>
+            <h2 id="plant-name"></h2>
+            <div class="iframe-container">
+                <iframe id="plant-model" width="100%" height="300" allowfullscreen></iframe>
+            </div>
+            <p><strong>Info:</strong> <span id="plant-info"></span></p>
+            <p><strong>Advantages:</strong> <span id="plant-advantages"></span></p>
+            <p><strong>Disadvantages:</strong> <span id="plant-disadvantages"></span></p>
+            <p><strong>Uses:</strong> <span id="plant-uses"></span></p>
+            <p><strong>Benefits:</strong> <span id="plant-benefits"></span></p>
+        </div>
+    </div>
+
+
+
+
+    
+
+    <div id="about-modal" class="modal info-modal">
+        <div class="modal-content">
+            <span class="close info-close">&times;</span>
+            <h3>About the App</h3>
+            <p class="app-description">
+                This app enables users to explore a wide range of medicinal plants and their applications in Ayurveda.
+
+                The Ayurveda Plants Explorer app serves as a comprehensive digital guide, bringing the ancient wisdom of Ayurveda directly to your fingertips. 
+                It offers detailed information on numerous medicinal plants, including their health benefits, uses, and traditional applications. 
+                Featuring a user-friendly interface, the app allows users to search, explore, and gain knowledge about each plant with ease. 
+                It is an invaluable resource for students, practitioners, and anyone interested in natural healing. 
+                By integrating modern technology with traditional knowledge, the app promotes holistic wellness and assists users in incorporating Ayurvedic remedies into their daily routines.
+            </p>
+        </div>
+    </div>
+
+    <div id="howto-modal" class="modal info-modal">
+        <div class="modal-content">
+            <span class="close info-close">&times;</span>
+            <h3>How to Use</h3>
+            <p>Click on any plant box in the "Explore Ayurveda Plants" section to see its full details, including a 3D model, benefits, advantages, disadvantages, and traditional uses.</p>
+            <p>Use the navigation links in the header to jump to Home, Contact, or open these informative pop-ups.</p>
+            <p>Use the search bar to quickly find a specific plant by name (functionality coming soon!).</p>
+        </div>
+    </div>
+
+    <div id="benefits-modal" class="modal info-modal">
+        <div class="modal-content">
+            <span class="close info-close">&times;</span>
+            <h3>Ayurveda Benefits</h3>
+            <p class="app-description">
+                <strong>Holistic Health:</strong> Focuses on balancing mind, body, and spirit for overall well-being.
+                <strong>Natural Remedies:</strong> Uses herbs, plants, and natural ingredients to treat and prevent illnesses.<br>
+                <strong>Boosts Immunity:</strong> Regular use of Ayurvedic practices can strengthen the immune system.<br>
+                <strong>Improves Digestion:</strong> Herbs and dietary guidelines help maintain healthy digestion and metabolism.<br>
+                <strong>Reduces Stress and Anxiety:</strong> Practices like meditation, yoga, and herbal treatments promote mental wellness.<br>
+                <strong>Detoxification:</strong> Helps eliminate toxins from the body using natural methods like Panchakarma.<br>
+                <strong>Personalized Care:</strong> Tailors treatments based on individual body types (Doshas -Vata, Pitta, Kapha).<br>
+                <strong>Supports Skin and Hair Health:</strong> Natural herbs improve skin texture, prevent acne, and strengthen hair.<br>
+                <strong>Promotes Longevity:</strong> Emphasizes preventive care and a balanced lifestyle for a longer, healthier life.<br>
+                <strong>Safe and Sustainable:</strong> Relies on natural products with minimal side effects.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-section" id="contact-footer">
+            <h3>Contact Us</h3>
+            <p>Email: support@ayurvedaapp.com</p>
+            <p>Phone: +91 7684971413</p>
+        </div>
+        <div class="footer-section">
+            <p>&copy; 2025 Ayurveda Plants Explorer. All rights reserved.</p>
+        </div>
+    </footer>
+
+<script src="{{ url_for('static', filename='p1.js') }}"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mental Health Plants - Ayurveda Guide</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+:root {
+    --primary-green: #4CAF50;
+    --secondary-green: #388E3C;
+    --light-bg-green: #d8e6d8;
+    --quick-view-btn-green: #66BB6A;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--light-bg-green);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+.navbar {
+    background-color: var(--secondary-green);
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}
+.plant-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 30px auto;
+    gap: 20px;
+}
+.plant-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+    width: calc(25% - 15px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.plant-card h2 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    padding: 0 10px;
+    text-align: left;
+}
+.plant-image-container {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.plant-image-container iframe {
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border:none;
+}
+.quick-view-wrapper { padding: 10px; }
+.quick-view-btn {
+    background-color: var(--quick-view-btn-green);
+    color: white;
+    border: none;
+    padding: 10px 0;
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background-color 0.2s;
+    border-radius: 5px;
+}
+.quick-view-btn:hover { background-color: var(--primary-green); }
+
+/* Modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(3px);
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px 30px;
+    border-radius: 10px;
+    width: 90%; 
+    max-width: 700px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-top: 5px solid var(--secondary-green);
+}
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 36px;
+    font-weight: normal;
+    cursor: pointer;
+    margin-top: -5px;
+}
+.modal-header h3 { color: var(--secondary-green); font-size: 2em; margin: 0 0 10px 0; text-align:center;}
+.modal-body .modal-image-container {
+    width: 300px;   /* set your desired size */
+    height: 300px;  /* keep width = height for perfect circle */
+    border-radius: 50%; /* makes it circular */
+    overflow: hidden;
+    margin: 10px auto 20px auto;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border: 3px solid var(--primary-green);
+}
+
+.modal-body .modal-image-container iframe { width:100%; height:100%; border:none; }
+.modal-body p { margin: 10px 0; }
+.modal-body strong { font-weight: bold; color: var(--secondary-green); display: block; margin-top: 15px; font-size:1.1em; }
+@media(max-width:1000px){ .plant-card { width: calc(50% - 15px); } }
+@media(max-width:600px){ .plant-card { width: 100%; } }
+</style>
+</head>
+<body>
+
+<header class="navbar">
+    <h1>Mental Health Plants</h1>
+</header>
+
+<div class="plant-grid">
+
+    <div class="plant-card" data-plant="Rosemary">
+        <h2>Rosemary</h2>
+        <div class="plant-image-container">
+            <iframe src="https://sketchfab.com/3d-models/rosemary-plant-d5c0f249ff8a4d13840abf681bb92d29/embed" allowfullscreen></iframe>
+        </div>
+        <div class="quick-view-wrapper">
+            <button class="quick-view-btn" data-plant-name="Rosemary">QUICK VIEW</button>
+        </div>
+    </div>
+
+    <div class="plant-card" data-plant="Jatamansi">
+        <h2>Jatamansi</h2>
+        <div class="plant-image-container">
+            <iframe src="https://sketchfab.com/models/32c028b2ffe54b32b861cde8db635dbc/embed" allowfullscreen></iframe>
+        </div>
+        <div class="quick-view-wrapper">
+            <button class="quick-view-btn" data-plant-name="Jatamansi">QUICK VIEW</button>
+        </div>
+    </div>
+
+    <div class="plant-card" data-plant="Lavender">
+        <h2>Lavender</h2>
+        <div class="plant-image-container">
+            <iframe src="https://sketchfab.com/3d-models/lavender-bouquet-e000a4a203ff43109e1bae876c5919c8/embed" allowfullscreen></iframe>
+        </div>
+        <div class="quick-view-wrapper">
+            <button class="quick-view-btn" data-plant-name="Lavender">QUICK VIEW</button>
+        </div>
+    </div>
+
+    <div class="plant-card" data-plant="Chamomile">
+        <h2>Chamomile</h2>
+        <div class="plant-image-container">
+            <iframe src="https://sketchfab.com/3d-models/chamomile-31df46bbac484e3aa549032d8f321b6d/embed" allowfullscreen></iframe>
+        </div>
+        <div class="quick-view-wrapper">
+            <button class="quick-view-btn" data-plant-name="Chamomile">QUICK VIEW</button>
+        </div>
+    </div>
+
+</div>
+
+<div id="quick-view-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div class="modal-header"></div>
+        <div class="modal-body"></div>
+    </div>
+</div>
+
+<script>
+const plantData = {
+    Rosemary: {
+        scientificName: 'Salvia rosmarinus',
+        image: 'https://sketchfab.com/3d-models/rosemary-plant-d5c0f249ff8a4d13840abf681bb92d29/embed',
+        info: 'Improves memory, focus, mood; reduces stress.',
+        advantages: 'Enhances cognitive function, boosts memory, reduces anxiety.',
+        disadvantages: 'May cause allergic reactions; avoid high doses during pregnancy.',
+        uses: 'Aromatherapy, herbal tea, culinary seasoning.'
+    },
+    Jatamansi: {
+        scientificName: 'Nardostachys jatamansi',
+        image: 'https://sketchfab.com/models/32c028b2ffe54b32b861cde8db635dbc/embed',
+        info: 'Calming and neurological benefits.',
+        advantages: 'Promotes hair growth, calms mind, aids sleep.',
+        disadvantages: 'Should be taken in moderation.',
+        uses: 'Rhizomes and essential oil.'
+    },
+    Lavender: {
+        scientificName: 'Lavandula angustifolia',
+        image: 'https://sketchfab.com/3d-models/lavender-bouquet-e000a4a203ff43109e1bae876c5919c8/embed',
+        info: 'Calming and mood-stabilizing.',
+        advantages: 'Reduces anxiety, improves sleep, alleviates stress.',
+        disadvantages: 'May cause skin irritation in sensitive individuals; not recommended during pregnancy or breastfeeding.',
+        uses: 'Aromatherapy, teas, topical applications.'
+    },
+    Chamomile: {
+        scientificName: 'Matricaria chamomilla',
+        image: 'https://sketchfab.com/3d-models/chamomile-31df46bbac484e3aa549032d8f321b6d/embed',
+        info: 'Reduces anxiety and improves sleep.',
+        advantages: 'Promotes relaxation, supports digestion, soothes skin.',
+        disadvantages: 'May cause allergic reactions; avoid if pregnant.',
+        uses: 'Herbal tea, aromatherapy, topical applications.'
+    }
+};
+
+const modal = document.getElementById('quick-view-modal');
+const modalHeader = modal.querySelector('.modal-header');
+const modalBody = modal.querySelector('.modal-body');
+const closeBtn = modal.querySelector('.close-btn');
+const quickViewBtns = document.querySelectorAll('.quick-view-btn');
+
+function showPlantDetails(plantName) {
+    const data = plantData[plantName];
+    modalHeader.innerHTML = `<h3>${plantName}</h3>`;
+    modalBody.innerHTML = `
+        <div class="modal-image-container">
+            <iframe src="${data.image}" allowfullscreen></iframe>
+        </div>
+        <p><strong>Scientific Name:</strong> ${data.scientificName}</p>
+        <p><strong>Info:</strong> ${data.info}</p>
+        <p><strong>Advantages:</strong> ${data.advantages}</p>
+        <p><strong>Disadvantages:</strong> ${data.disadvantages}</p>
+        <p><strong>Uses:</strong> ${data.uses}</p>
+    `;
+    modal.style.display = 'block';
+}
+
+quickViewBtns.forEach(btn => {
+    btn.addEventListener('click', (e)=>{
+        const plantName = e.target.getAttribute('data-plant-name');
+        showPlantDetails(plantName);
+    });
+});
+
+closeBtn.addEventListener('click', ()=>{ modal.style.display='none'; });
+window.addEventListener('click',(e)=>{ if(e.target===modal){ modal.style.display='none'; } });
+document.addEventListener('keydown',(e)=>{ if(e.key==='Escape'){ modal.style.display='none'; } });
+</script>
+
+</body>
+</html>
