@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mental Health Plants - Ayurveda Guide</title>
+<title>Herbal Plants - Ayurveda</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
 :root {
@@ -28,23 +26,17 @@ body {
     text-align: center;
 }
 .plant-grid {
-    display: flex;
+    display: flex;                
     justify-content: space-between;
-    flex-wrap: wrap;
-    max-width: 1200px;
+    flex-wrap: nowrap;           
+    max-width: 1200px;           
     margin: 30px auto;
-    gap: 20px;
+    gap: 20px;                    
+    overflow-x: auto;             
 }
 .plant-card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    overflow: hidden;
-    text-align: center;
-    width: calc(25% - 15px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    width: calc(20% - 16px);      
+    flex-shrink: 0;                
 }
 .plant-card h2 {
     font-size: 1.2em;
@@ -82,8 +74,6 @@ body {
     border-radius: 5px;
 }
 .quick-view-btn:hover { background-color: var(--primary-green); }
-
-/* Modal */
 .modal {
     display: none; 
     position: fixed; 
@@ -117,7 +107,7 @@ body {
 }
 .modal-header h3 { color: var(--secondary-green); font-size: 2em; margin: 0 0 10px 0; text-align:center;}
 .modal-body .modal-image-container {
-    width: 300px;  
+    width: 300px;   
     height: 300px;  
     border-radius: 50%; 
     overflow: hidden;
@@ -126,7 +116,6 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     border: 3px solid var(--primary-green);
 }
-
 .modal-body .modal-image-container iframe { width:100%; height:100%; border:none; }
 .modal-body p { margin: 10px 0; }
 .modal-body strong { font-weight: bold; color: var(--secondary-green); display: block; margin-top: 15px; font-size:1.1em; }
@@ -137,53 +126,46 @@ body {
 <body>
 
 <header class="navbar">
-    <h1>Mental Health Plants</h1>
+    <h1>Herbal Plants - Ayurveda</h1>
 </header>
-
 <div class="plant-grid">
-
-    <div class="plant-card" data-plant="Rosemary">
-        <h2>Rosemary</h2>
-        <div class="plant-image-container">
-            <iframe src="https://sketchfab.com/3d-models/rosemary-plant-d5c0f249ff8a4d13840abf681bb92d29/embed" allowfullscreen></iframe>
-        </div>
-        <div class="quick-view-wrapper">
-            <button class="quick-view-btn" data-plant-name="Rosemary">QUICK VIEW</button>
-        </div>
+    <div class="plant-card" data-plant="Clove">
+    <h2>Clove</h2>
+    <div class="plant-image-container">
+        <iframe src="https://sketchfab.com/3d-models/clove-syzygium-aromaticum-6a8b796492ff42018cf79e9717f99b4f/embed" allowfullscreen></iframe>
     </div>
-
-    <div class="plant-card" data-plant="Jatamansi">
-        <h2>Jatamansi</h2>
-        <div class="plant-image-container">
-            <iframe src="https://sketchfab.com/models/32c028b2ffe54b32b861cde8db635dbc/embed" allowfullscreen></iframe>
-        </div>
-        <div class="quick-view-wrapper">
-            <button class="quick-view-btn" data-plant-name="Jatamansi">QUICK VIEW</button>
-        </div>
+    <div class="quick-view-wrapper">
+        <button class="quick-view-btn" data-plant-name="Clove">QUICK VIEW</button>
     </div>
-
-    <div class="plant-card" data-plant="Lavender">
-        <h2>Lavender</h2>
-        <div class="plant-image-container">
-            <iframe src="https://sketchfab.com/3d-models/lavender-bouquet-e000a4a203ff43109e1bae876c5919c8/embed" allowfullscreen></iframe>
-        </div>
-        <div class="quick-view-wrapper">
-            <button class="quick-view-btn" data-plant-name="Lavender">QUICK VIEW</button>
-        </div>
-    </div>
-
-    <div class="plant-card" data-plant="Chamomile">
-        <h2>Chamomile</h2>
-        <div class="plant-image-container">
-            <iframe src="https://sketchfab.com/3d-models/chamomile-31df46bbac484e3aa549032d8f321b6d/embed" allowfullscreen></iframe>
-        </div>
-        <div class="quick-view-wrapper">
-            <button class="quick-view-btn" data-plant-name="Chamomile">QUICK VIEW</button>
-        </div>
-    </div>
-
 </div>
-
+<div class="plant-card" data-plant="Eucalyptus">
+    <h2>Eucalyptus</h2>
+    <div class="plant-image-container">
+        <iframe src="https://sketchfab.com/3d-models/eucalyptus-tree-d021e7909df44e03b976c1374bfab9dc/embed" allowfullscreen></iframe>
+    </div>
+    <div class="quick-view-wrapper">
+        <button class="quick-view-btn" data-plant-name="Eucalyptus">QUICK VIEW</button>
+    </div>
+</div>
+    <div class="plant-card" data-plant="Bay Leaf">
+        <h2>Bay Leaf</h2>
+        <div class="plant-image-container">
+            <iframe src="https://sketchfab.com/3d-models/bay-leaf-07bef1f1de664d1b8e5d1a317a41831b/embed" allowfullscreen></iframe>
+        </div>
+        <div class="quick-view-wrapper">
+            <button class="quick-view-btn" data-plant-name="Bay Leaf">QUICK VIEW</button>
+        </div>
+    </div>
+   <div class="plant-card" data-plant="Cardamom">
+    <h2>Cardamom</h2>
+    <div class="plant-image-container">
+        <iframe src="https://sketchfab.com/3d-models/cardamom-bowl-7e84837fa85c4b56b751f51dccb5aee0/embed" allowfullscreen></iframe>
+    </div>
+    <div class="quick-view-wrapper">
+        <button class="quick-view-btn" data-plant-name="Cardamom">QUICK VIEW</button>
+    </div>
+</div>
+</div>
 <div id="quick-view-modal" class="modal">
     <div class="modal-content">
         <span class="close-btn">&times;</span>
@@ -191,49 +173,48 @@ body {
         <div class="modal-body"></div>
     </div>
 </div>
-
 <script>
 const plantData = {
-    Rosemary: {
-        scientificName: 'Salvia rosmarinus',
-        image: 'https://sketchfab.com/3d-models/rosemary-plant-d5c0f249ff8a4d13840abf681bb92d29/embed',
-        info: 'Improves memory, focus, mood; reduces stress.',
-        advantages: 'Enhances cognitive function, boosts memory, reduces anxiety.',
-        disadvantages: 'May cause allergic reactions; avoid high doses during pregnancy.',
-        uses: 'Aromatherapy, herbal tea, culinary seasoning.'
-    },
-    Jatamansi: {
-        scientificName: 'Nardostachys jatamansi',
-        image: 'https://sketchfab.com/models/32c028b2ffe54b32b861cde8db635dbc/embed',
-        info: 'Calming and neurological benefits.',
-        advantages: 'Promotes hair growth, calms mind, aids sleep.',
-        disadvantages: 'Should be taken in moderation.',
-        uses: 'Rhizomes and essential oil.'
-    },
-    Lavender: {
-        scientificName: 'Lavandula angustifolia',
-        image: 'https://sketchfab.com/3d-models/lavender-bouquet-e000a4a203ff43109e1bae876c5919c8/embed',
-        info: 'Calming and mood-stabilizing.',
-        advantages: 'Reduces anxiety, improves sleep, alleviates stress.',
-        disadvantages: 'May cause skin irritation in sensitive individuals; not recommended during pregnancy or breastfeeding.',
-        uses: 'Aromatherapy, teas, topical applications.'
-    },
-    Chamomile: {
-        scientificName: 'Matricaria chamomilla',
-        image: 'https://sketchfab.com/3d-models/chamomile-31df46bbac484e3aa549032d8f321b6d/embed',
-        info: 'Reduces anxiety and improves sleep.',
-        advantages: 'Promotes relaxation, supports digestion, soothes skin.',
-        disadvantages: 'May cause allergic reactions; avoid if pregnant.',
-        uses: 'Herbal tea, aromatherapy, topical applications.'
+
+   Clove: {
+    scientificName: 'Syzygium aromaticum',
+    image: 'https://sketchfab.com/3d-models/clove-syzygium-aromaticum-6a8b796492ff42018cf79e9717f99b4f/embed',
+    info: 'Aromatic flower bud used in Ayurveda for cough, cold, and oral health. Helps relieve sore throat and chest congestion.',
+    advantages: 'Antimicrobial, anti-inflammatory, relieves respiratory discomfort, supports oral and lung health.',
+    disadvantages: 'Strong flavor; may cause irritation if used in excess or undiluted oil applied directly.',
+    uses: 'Used in teas, cough syrups, herbal steam inhalations, and essential oils to ease respiratory and throat problems.'
+},
+Eucalyptus: {
+    scientificName: 'Eucalyptus globulus',
+    image: 'https://sketchfab.com/3d-models/eucalyptus-tree-d021e7909df44e03b976c1374bfab9dc/embed',
+    info: 'Fast-growing tree known for its aromatic leaves and essential oils that support respiratory health.',
+    advantages: 'Clears nasal and chest congestion, has antimicrobial and anti-inflammatory properties, supports easier breathing.',
+    disadvantages: 'Strong scent may be irritating to sensitive individuals; essential oil needs dilution before direct application.',
+    uses: 'Used in steam inhalations, topical balms, herbal teas, and therapeutic oils for respiratory relief.'
+},
+Cardamom: {
+    scientificName: 'Elettaria cardamomum',
+    image: 'https://sketchfab.com/3d-models/cardamom-bowl-7e84837fa85c4b56b751f51dccb5aee0/embed',
+    info: 'A fragrant spice widely used in Ayurveda for respiratory health and digestion. It helps relieve cough, throat irritation, and supports fresh breath.',
+    advantages: 'Clears nasal congestion, supports lung health, improves digestion, and provides antimicrobial protection.',
+    disadvantages: 'Strong flavor; may cause mild irritation in sensitive individuals or if consumed excessively.',
+    uses: 'Used in herbal teas, steam inhalation, Ayurvedic tonics, and as a spice in food for respiratory and digestive benefits.'
+},
+
+    BayLeaf: {
+        scientificName: 'Laurus nobilis',
+        image: 'https://sketchfab.com/3d-models/bay-leaf-07bef1f1de664d1b8e5d1a317a41831b/embed',
+        info: 'Aromatic leaf used in culinary and traditional medicine.',
+        advantages: 'Supports digestion, has antibacterial and antioxidant properties.',
+        disadvantages: 'May cause mild allergic reactions in some individuals.',
+        uses: 'Used in cooking, teas, and herbal remedies for digestive health.'
     }
 };
-
 const modal = document.getElementById('quick-view-modal');
 const modalHeader = modal.querySelector('.modal-header');
 const modalBody = modal.querySelector('.modal-body');
 const closeBtn = modal.querySelector('.close-btn');
 const quickViewBtns = document.querySelectorAll('.quick-view-btn');
-
 function showPlantDetails(plantName) {
     const data = plantData[plantName];
     modalHeader.innerHTML = `<h3>${plantName}</h3>`;
@@ -249,18 +230,15 @@ function showPlantDetails(plantName) {
     `;
     modal.style.display = 'block';
 }
-
 quickViewBtns.forEach(btn => {
     btn.addEventListener('click', (e)=>{
         const plantName = e.target.getAttribute('data-plant-name');
         showPlantDetails(plantName);
     });
 });
-
 closeBtn.addEventListener('click', ()=>{ modal.style.display='none'; });
 window.addEventListener('click',(e)=>{ if(e.target===modal){ modal.style.display='none'; } });
 document.addEventListener('keydown',(e)=>{ if(e.key==='Escape'){ modal.style.display='none'; } });
 </script>
-
 </body>
 </html>

@@ -1,7 +1,6 @@
 
 from flask import render_template, request, redirect, url_for
 
-# Sample credentials
 USER_CREDENTIALS = {
     "jyotismita": "j1234",
     "testuser": "password"

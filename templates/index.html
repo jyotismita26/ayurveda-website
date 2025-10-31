@@ -1,13 +1,7 @@
 <!DOCTYPE html>
-
 <head>
-    
-    <title>Ayurveda Plants Explorer</title>
-  
-          
-    <link rel="stylesheet" href="{{ url_for('static', filename='p1.css') }}">
-
-
+      <title>Ayurveda Plants Explorer</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='p1.css') }}">
 </head>
 <body>
     <header id="navbar">
@@ -15,31 +9,43 @@
             <div class="logo"></div>
             <div class="nav-title">Ayurveda</div>
         </div>
-        
-        <nav class="nav-links">
+                <nav class="nav-links">
             <ul>
                 <li><a href="#home-section">Home</a></li>
                 <li><a href="#" class="open-popup-link" data-modal-id="about-modal">About the App</a></li>
                 <li><a href="#" class="open-popup-link" data-modal-id="howto-modal">How to Use</a></li>
                 <li><a href="#" class="open-popup-link" data-modal-id="benefits-modal">Ayurveda Benefits</a></li>
-                <li><a href="#contact-footer">Contact</a></li>
-      
-                 <a href="{{ url_for('login_page') }}">Login</a>
+                 <a href="/doctor">Doctor Appointment</a>
 
+
+                <li><a href="#contact-footer">Contact</a></li>
+                       <a href="{{ url_for('login_page') }}">Login</a>
             </ul>
         </nav>
-
         <div class="nav-search">
             <input type="text" id="search-input" placeholder="Search plants...">
 <div id="search-results"></div>
-
-            <button>🔍</button>
-            
+            <button>🔍</button>  
         </div>
+<div id="modal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="plant-close">&times;</span>
+    <h2 id="plant-name"></h2>
+    <iframe id="plant-model" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
+    <h3>Information</h3>
+    <p id="plant-info"></p>
+    <h3>Advantages</h3>
+    <p id="plant-advantages"></p>
+    <h3>Disadvantages</h3>
+    <p id="plant-disadvantages"></p>
+    <h3>Uses</h3>
+    <p id="plant-uses"></p>
+    <h3>Benefits</h3>
+    <p id="plant-benefits"></p>
+  </div>
+</div>
+
     </header>
-    
-
-
     <section class="hero-section" id="home-section">
         <div class="hero-msg">
             <h1>🌱 Explore Ayurveda Plants</h1>
@@ -48,7 +54,6 @@
     </section>
 
     <section class="shop-section">
-
         <div class="box" 
              data-name="Neem" 
              data-info=" is antibacterial and antifungal."
@@ -159,12 +164,9 @@
             <p>Quick View</p>
         </div>
 
-
 <section class="categories-section">
   <h1 class="centered">Look by categories</h1>
-
   <div class="category-grid">
-
     <a href="{{ url_for('oral') }}" class="category-card">
       <div class="category-box">
         <img src="https://i.pinimg.com/736x/6e/e3/c1/6ee3c1d2d54e55f031f1dbaa171b4647.jpg" alt="Oral Health">
@@ -186,14 +188,15 @@
       </div>
     </a>
 
-    <a href="#" class="category-card">
+    <a href="{{ url_for('respiratory') }}" class="category-card">
+    
       <div class="category-box">
         <img src="https://i.pinimg.com/736x/e7/8d/21/e78d21684741e6940c361989cf57ec35.jpg" alt="Respiratory Health">
         <p>Respiratory Health</p>
       </div>
     </a>
 
-    <a href="#" class="category-card">
+     <a href="{{ url_for('immunity') }}" class="category-card">
       <div class="category-box">
         <img src="https://i.pinimg.com/736x/d5/a8/5d/d5a85df39c654d4a14a34cbefce6e1f0.jpg" alt="Immunity Booster">
         <p>Immunity Booster</p>
@@ -202,10 +205,6 @@
 
   </div>
 </section>
-
-
-            
-
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close plant-close">&times;</span>
@@ -220,11 +219,6 @@
             <p><strong>Benefits:</strong> <span id="plant-benefits"></span></p>
         </div>
     </div>
-
-
-
-
-    
 
     <div id="about-modal" class="modal info-modal">
         <div class="modal-content">
@@ -257,7 +251,7 @@
             <span class="close info-close">&times;</span>
             <h3>Ayurveda Benefits</h3>
             <p class="app-description">
-                <strong>Holistic Health:</strong> Focuses on balancing mind, body, and spirit for overall well-being.
+                <strong>Holistic Health:</strong> Focuses on balancing mind, body, and spirit for overall well-being.<br>
                 <strong>Natural Remedies:</strong> Uses herbs, plants, and natural ingredients to treat and prevent illnesses.<br>
                 <strong>Boosts Immunity:</strong> Regular use of Ayurvedic practices can strengthen the immune system.<br>
                 <strong>Improves Digestion:</strong> Herbs and dietary guidelines help maintain healthy digestion and metabolism.<br>
@@ -271,6 +265,54 @@
         </div>
     </div>
 
+    <section class="usp-section">
+  <h2>Our USPs</h2>
+
+  <div class="usp-container">
+    <div class="usp-box">
+      <img src="https://thumbs.dreamstime.com/b/locally-grown-stamp-emblem-packaging-regional-farming-fruits-vegetables-isolated-vector-pictogram-198601906.jpg" alt="Scientifically Researched">
+      <p>locally grown</p>
+    </div>
+
+    <div class="usp-box">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.xRvdb1mP8EE0DhAwcSBPbQHaHa?pid=Api&P=0&h=180" alt="Clinically Tested">
+      <p>non genetically modified</p>
+    </div>
+
+    <div class="usp-box">
+      <img src="https://tse1.mm.bing.net/th/id/OIP.W0K71b1hMDEUg9oUYkwH5wHaFF?pid=Api&P=0&h=180" alt="Free From Heavy Metals">
+      <p>Inspired by Ancient Ayurveda </p>
+    </div>
+
+    <div class="usp-box">
+      <img src="https://img.freepik.com/premium-vector/pesticide-free-logo-vector_694796-211.jpg?w=740" alt="Pesticide Free">
+      <p>Pesticide Free</p>
+    </div>
+  </div>
+</section>
+<section class="dosha-section">
+  <div class="dosha-content">
+    <div class="dosha-left">
+      <h2>Don't Know Your Dosha Yet?</h2>
+      <p class="subtitle">Let's find out with a quiz</p>
+
+      <h3>DO YOU KNOW YOUR BODY TYPE?</h3>
+      <p>
+        According to Ayurveda, there are three main metabolic body types (physiologies),
+        that form the basic framework of a person.
+      </p>
+      <p>
+        These are the essential forces behind an individual’s physical, mental, and emotional makeup.
+        It is imperative to map your needs to your dosha type to get the best results.
+        There are three basic doshas every individual inherits either a combination or any one of these doshas.
+      </p>
+      <button class="discover-btn">DISCOVER YOUR DOSHA</button>
+    </div>
+    <div class="dosha-right">
+      <img src="https://imgk.timesnownews.com/story/COVER_PHOTO_TRIDOSHA_VATA_KAPHA_PITTA.PNG" alt="Dosha Illustration">
+    </div>
+  </div>
+</section>
     <footer>
         <div class="footer-section" id="contact-footer">
             <h3>Contact Us</h3>
@@ -283,20 +325,5 @@
     </footer>
 
 <script src="{{ url_for('static', filename='p1.js') }}"></script>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

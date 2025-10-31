@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mental Health Plants - Ayurveda Guide</title>
+<title>Herbal Plants - Ayurveda</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
 :root {
@@ -28,23 +26,17 @@ body {
     text-align: center;
 }
 .plant-grid {
-    display: flex;
+    display: flex;                
     justify-content: space-between;
-    flex-wrap: wrap;
-    max-width: 1200px;
+    flex-wrap: nowrap;           
+    max-width: 1200px;           
     margin: 30px auto;
-    gap: 20px;
+    gap: 20px;                    
+    overflow-x: auto;             
 }
 .plant-card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    overflow: hidden;
-    text-align: center;
-    width: calc(25% - 15px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    width: calc(20% - 16px);      
+    flex-shrink: 0;                
 }
 .plant-card h2 {
     font-size: 1.2em;
@@ -82,8 +74,6 @@ body {
     border-radius: 5px;
 }
 .quick-view-btn:hover { background-color: var(--primary-green); }
-
-/* Modal */
 .modal {
     display: none; 
     position: fixed; 
@@ -117,7 +107,7 @@ body {
 }
 .modal-header h3 { color: var(--secondary-green); font-size: 2em; margin: 0 0 10px 0; text-align:center;}
 .modal-body .modal-image-container {
-    width: 300px;  
+    width: 300px;   
     height: 300px;  
     border-radius: 50%; 
     overflow: hidden;
@@ -126,7 +116,6 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     border: 3px solid var(--primary-green);
 }
-
 .modal-body .modal-image-container iframe { width:100%; height:100%; border:none; }
 .modal-body p { margin: 10px 0; }
 .modal-body strong { font-weight: bold; color: var(--secondary-green); display: block; margin-top: 15px; font-size:1.1em; }
@@ -137,53 +126,37 @@ body {
 <body>
 
 <header class="navbar">
-    <h1>Mental Health Plants</h1>
+    <h1>Herbal Plants - Ayurveda</h1>
 </header>
-
 <div class="plant-grid">
-
-    <div class="plant-card" data-plant="Rosemary">
-        <h2>Rosemary</h2>
-        <div class="plant-image-container">
-            <iframe src="https://sketchfab.com/3d-models/rosemary-plant-d5c0f249ff8a4d13840abf681bb92d29/embed" allowfullscreen></iframe>
-        </div>
-        <div class="quick-view-wrapper">
-            <button class="quick-view-btn" data-plant-name="Rosemary">QUICK VIEW</button>
-        </div>
+ <div class="plant-card" data-plant="Garlic">
+    <h2>Garlic</h2>
+    <div class="plant-image-container">
+        <iframe src="https://sketchfab.com/3d-models/garlic-plant-c8c0833fd3384876a1e8fa55ed6d32cd/embed" allowfullscreen></iframe>
     </div>
-
-    <div class="plant-card" data-plant="Jatamansi">
-        <h2>Jatamansi</h2>
-        <div class="plant-image-container">
-            <iframe src="https://sketchfab.com/models/32c028b2ffe54b32b861cde8db635dbc/embed" allowfullscreen></iframe>
-        </div>
-        <div class="quick-view-wrapper">
-            <button class="quick-view-btn" data-plant-name="Jatamansi">QUICK VIEW</button>
-        </div>
+    <div class="quick-view-wrapper">
+        <button class="quick-view-btn" data-plant-name="Garlic">QUICK VIEW</button>
     </div>
-
-    <div class="plant-card" data-plant="Lavender">
-        <h2>Lavender</h2>
-        <div class="plant-image-container">
-            <iframe src="https://sketchfab.com/3d-models/lavender-bouquet-e000a4a203ff43109e1bae876c5919c8/embed" allowfullscreen></iframe>
-        </div>
-        <div class="quick-view-wrapper">
-            <button class="quick-view-btn" data-plant-name="Lavender">QUICK VIEW</button>
-        </div>
-    </div>
-
-    <div class="plant-card" data-plant="Chamomile">
-        <h2>Chamomile</h2>
-        <div class="plant-image-container">
-            <iframe src="https://sketchfab.com/3d-models/chamomile-31df46bbac484e3aa549032d8f321b6d/embed" allowfullscreen></iframe>
-        </div>
-        <div class="quick-view-wrapper">
-            <button class="quick-view-btn" data-plant-name="Chamomile">QUICK VIEW</button>
-        </div>
-    </div>
-
 </div>
-
+<div class="plant-card" data-plant="CurryLeaves">
+    <h2>Curry Leaves</h2>
+    <div class="plant-image-container">
+        <iframe src="https://sketchfab.com/3d-models/as12-murraya-koenigii-curry-leaf-bb3c53f279764739bda1118097753b45/embed" allowfullscreen></iframe>
+    </div>
+    <div class="quick-view-wrapper">
+        <button class="quick-view-btn" data-plant-name="CurryLeaves">QUICK VIEW</button>
+    </div>
+</div>
+<div class="plant-card" data-plant="Tulsi">
+    <h2>Tulsi (Holy Basil)</h2>
+    <div class="plant-image-container">
+        <iframe src="https://sketchfab.com/3d-models/tulsi-osmium-holy-basil-tree-game-ready-c604e8f52c234f2e9259d895fe028819/embed" allowfullscreen></iframe>
+    </div>
+    <div class="quick-view-wrapper">
+        <button class="quick-view-btn" data-plant-name="Tulsi">QUICK VIEW</button>
+    </div>
+</div>
+</div>
 <div id="quick-view-modal" class="modal">
     <div class="modal-content">
         <span class="close-btn">&times;</span>
@@ -191,43 +164,34 @@ body {
         <div class="modal-body"></div>
     </div>
 </div>
-
 <script>
 const plantData = {
-    Rosemary: {
-        scientificName: 'Salvia rosmarinus',
-        image: 'https://sketchfab.com/3d-models/rosemary-plant-d5c0f249ff8a4d13840abf681bb92d29/embed',
-        info: 'Improves memory, focus, mood; reduces stress.',
-        advantages: 'Enhances cognitive function, boosts memory, reduces anxiety.',
-        disadvantages: 'May cause allergic reactions; avoid high doses during pregnancy.',
-        uses: 'Aromatherapy, herbal tea, culinary seasoning.'
-    },
-    Jatamansi: {
-        scientificName: 'Nardostachys jatamansi',
-        image: 'https://sketchfab.com/models/32c028b2ffe54b32b861cde8db635dbc/embed',
-        info: 'Calming and neurological benefits.',
-        advantages: 'Promotes hair growth, calms mind, aids sleep.',
-        disadvantages: 'Should be taken in moderation.',
-        uses: 'Rhizomes and essential oil.'
-    },
-    Lavender: {
-        scientificName: 'Lavandula angustifolia',
-        image: 'https://sketchfab.com/3d-models/lavender-bouquet-e000a4a203ff43109e1bae876c5919c8/embed',
-        info: 'Calming and mood-stabilizing.',
-        advantages: 'Reduces anxiety, improves sleep, alleviates stress.',
-        disadvantages: 'May cause skin irritation in sensitive individuals; not recommended during pregnancy or breastfeeding.',
-        uses: 'Aromatherapy, teas, topical applications.'
-    },
-    Chamomile: {
-        scientificName: 'Matricaria chamomilla',
-        image: 'https://sketchfab.com/3d-models/chamomile-31df46bbac484e3aa549032d8f321b6d/embed',
-        info: 'Reduces anxiety and improves sleep.',
-        advantages: 'Promotes relaxation, supports digestion, soothes skin.',
-        disadvantages: 'May cause allergic reactions; avoid if pregnant.',
-        uses: 'Herbal tea, aromatherapy, topical applications.'
-    }
-};
+ Garlic: {
+    scientificName: 'Allium sativum',
+    image: 'https://sketchfab.com/3d-models/garlic-plant-c8c0833fd3384876a1e8fa55ed6d32cd/embed',
+    info: 'Widely used culinary and medicinal plant, known for boosting immunity and supporting body’s defence against infections.',
+    advantages: 'Contains allicin and other sulfur-compounds that enhance immune function and may reduce severity of cold/flu symptoms. :contentReference[oaicite:0]{index=0}',
+    disadvantages: 'Strong flavour and smell; may cause digestive upset or interact with blood-thinning medications in sensitive individuals.',
+    uses: 'Used in raw form, teas, extracts and culinary preparations to support immune health and fight infections.'
+},
 
+CurryLeaves: {
+    scientificName: 'Murraya koenigii',
+    image: 'https://sketchfab.com/3d-models/as12-murraya-koenigii-curry-leaf-bb3c53f279764739bda1118097753b45/embed',
+    info: 'Aromatic leaves commonly used in Indian cooking; also traditionally used for digestive and immune support.',
+    advantages: 'Rich in bio-active compounds and antioxidants which support metabolism and may indirectly boost immune and overall wellness.',
+    disadvantages: 'Milder research support compared to some herbs; excessive intake may have undesired effects in certain conditions.',
+    uses: 'Used fresh in cooking, as a flavouring, and in herbal teas or decoctions for wellness support.'
+},
+Tulsi: {
+    scientificName: 'Ocimum tenuiflorum',
+    image: 'https://sketchfab.com/3d-models/tulsi-osmium-holy-basil-tree-game-ready-c604e8f52c234f2e9259d895fe028819/embed',
+    info: 'Revered sacred herb in Ayurveda, known for boosting immunity, reducing stress and supporting respiratory & overall health.',
+    advantages: 'Supports immune system, antioxidant-rich, helps fight infections, supports respiratory wellness and stress reduction.',
+    disadvantages: 'Mild herb but may cause allergic reactions in very sensitive individuals; should be used cautiously during pregnancy or in thyroid conditions.',
+    uses: 'Used in herbal teas, vital tonic preparations, adaptogenic blends, fogging/steam inhalation for respiratory support, and as a sacred ritual herb.'
+}
+};
 const modal = document.getElementById('quick-view-modal');
 const modalHeader = modal.querySelector('.modal-header');
 const modalBody = modal.querySelector('.modal-body');
@@ -249,18 +213,15 @@ function showPlantDetails(plantName) {
     `;
     modal.style.display = 'block';
 }
-
 quickViewBtns.forEach(btn => {
     btn.addEventListener('click', (e)=>{
         const plantName = e.target.getAttribute('data-plant-name');
         showPlantDetails(plantName);
     });
 });
-
 closeBtn.addEventListener('click', ()=>{ modal.style.display='none'; });
 window.addEventListener('click',(e)=>{ if(e.target===modal){ modal.style.display='none'; } });
 document.addEventListener('keydown',(e)=>{ if(e.key==='Escape'){ modal.style.display='none'; } });
 </script>
-
 </body>
 </html>

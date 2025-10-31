@@ -5,7 +5,6 @@
 }
 
 body {
-  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,51 +12,70 @@ body {
   background-image: url('https://wallpaperaccess.com/full/2996864.jpg');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
+/* ---------- Glass Container ---------- */
 .glass-container {
-  width: 300px;
-  height: 350px;
+  width: 320px;
+  height: 400px;
   position: relative;
-  z-index: 1;
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  border: 1px solid black;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+  transition: height 0.5s ease;
 }
 
-.glass-container::before {
-  content: '';
+.glass-container.show-register {
+  height: 450px;
+}
+
+/* ---------- Form Boxes ---------- */
+.form-box {
   position: absolute;
   width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  backdrop-filter: blur(5px);
-  z-index: -1;
+  padding: 30px;
+  top: 0;
+  left: 0;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateX(100%);
 }
 
 .login-box {
-  max-width: 250px;
-  margin: 0 auto;
-  text-align: center;
+  opacity: 1;
+  transform: translateX(0);
 }
 
+.glass-container.show-register .login-box {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.glass-container.show-register .register-box {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ---------- Common Form Styles ---------- */
 h2 {
+  text-align: center;
   color: black;
-  margin-top: 30px;
-  margin-bottom: -20px;
+  margin-bottom: 20px;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  gap: 18px;
 }
 
 input {
   padding: 10px;
-  margin-top: 25px;
-  border-radius: 10px;
+  border-radius: 8px;
   background: transparent;
   border: 1px solid black;
   color: black;
@@ -65,50 +83,51 @@ input {
 }
 
 input::placeholder {
-  color:black;
+  color: black;
 }
 
 input:focus {
   outline: none;
+  border-color: forestgreen;
 }
 
 .option {
   display: flex;
   align-items: center;
-  margin-top: 15px;
+  justify-content: space-between;
   font-size: 12px;
   color: black;
 }
 
-.option input {
-  margin-right: 5px;
-  margin-top: 0px;
-}
-
 .option a {
-  text-decoration: none;
   color: black;
-  margin-left: auto;
+  text-decoration: none;
 }
 
 button {
-  background-color:forestgreen;
-  color: black;
+  background-color: forestgreen;
+  color: white;
   padding: 10px;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
-  margin-top: 15px;
+  transition: 0.3s;
 }
 
 button:hover {
   background-color: transparent;
   color: black;
-  outline: 1px solid black;
+  border: 1px solid black;
 }
 
 p {
+  text-align: center;
   font-size: 12px;
   color: black;
-  margin-top: 15px;
+}
+
+p a {
+  color: black;
+  text-decoration: underline;
+  font-weight: 500;
 }

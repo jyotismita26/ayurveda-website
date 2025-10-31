@@ -1,28 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  
-    <title>Login</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Register</title>
+<link rel="stylesheet" href="static/login.css">
+
 </head>
 <body>
-    <div class="glass-container">
-        <div class="login-box">
-            <h2>LOGIN</h2>
-            <form action="{{ url_for('login') }}" method="post">
-                <input type="text" id="username" name="username" required placeholder="username">
-                <input type="password" id="password" name="password" required placeholder="password">
 
-                <div class="option">
-                    <input type="checkbox" id="remember" name="remember">
-                    <label for="remember"> remember me</label>
-                    <a href="#"> Forgot password</a>
-                </div>
+  <div class="glass-container" id="container">
 
-                <button type="submit">login</button>
-                <p>Don't have an account? <a href="#" id="register">Register</a></p>
-            </form>
+    <!-- LOGIN FORM -->
+    <div class="form-box login-box">
+      <h2>LOGIN</h2>
+      <form id="loginForm">
+        <input type="text" id="loginUsername" placeholder="Username" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+
+        <div class="option">
+          <input type="checkbox" id="remember">
+          <label for="remember">Remember me</label>
+          <a href="#">Forgot password?</a>
         </div>
+
+        <button type="submit">Login</button>
+        <p>Don't have an account?
+          <a href="#" id="showRegister">Register</a>
+        </p>
+      </form>
+      <p id="loginMessage" class="message"></p>
     </div>
+
+    <!-- REGISTER FORM -->
+    <div class="form-box register-box">
+      <h2>REGISTER</h2>
+      <form id="registerForm">
+        <input type="text" id="regUsername" placeholder="Username" required>
+        <input type="email" id="regEmail" placeholder="Email" required>
+        <input type="password" id="regPassword" placeholder="Password" required>
+
+        <button type="submit">Register</button>
+        <p>Already have an account?
+          <a href="#" id="showLogin">Login</a>
+        </p>
+      </form>
+      <p id="registerMessage" class="message"></p>
+    </div>
+
+  </div>
+
+  <script>
+    const container = document.getElementById('container');
+    const showRegister = document.getElementById('showRegister');
+    const showLogin = document.getElementById('showLogin');
+
+    // Switch between Login and Register
+    showRegister.addEventListener('click', (e) => {
+      e.preventDefault();
+      container.classList.add('show-register');
+    });
+
+    showLogin.addEventListener('click', (e) => {
+      e.preventDefault();
+      container.classList.remove('show-register');
+    });
+
+    // Handle Login
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const username = document.getElementById('loginUsername').value;
+      const password = document.getElementById('loginPassword').value;
+      const message = document.getElementById('loginMessage');
+
+      if (username === "admin" && password === "1234") {
+        message.textContent = "✅ Login Successful!";
+        message.style.color = "green";
+      } else {
+        message.textContent = "❌ Invalid Username or Password!";
+        message.style.color = "red";
+      }
+    });
+
+    // Handle Register
+    document.getElementById('registerForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const username = document.getElementById('regUsername').value;
+      const email = document.getElementById('regEmail').value;
+      const password = document.getElementById('regPassword').value;
+      const message = document.getElementById('registerMessage');
+
+      if (username && email && password) {
+        message.textContent = "✅ Registration Successful!";
+        message.style.color = "green";
+      } else {
+        message.textContent = "❌ Please fill all fields!";
+        message.style.color = "red";
+      }
+    });
+  </script>
+
 </body>
 </html>

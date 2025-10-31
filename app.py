@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for
-import backend  # if you have backend.py for login functions
+import backend 
 
 app = Flask(__name__)  
 
@@ -38,9 +38,6 @@ plants = [
 
 ]
 
-# -------------------------
-# Routes
-# --------------------------
 @app.route('/')
 def home():
     return render_template('index.html', plants=plants)
@@ -58,14 +55,26 @@ def oral():
     return render_template('oral.html')
 
 
+@app.route('/respiratory')
+def respiratory():
+    return render_template('respiratory.html')
+
 @app.route('/skin')
 def skin():
     return render_template('skin.html')
+
+@app.route('/immunity')
+def immunity():
+    return render_template('immunity.html')
 
 @app.route('/login', methods=['POST'])
 def login():
     return backend.handle_login(request)
     
+@app.route("/doctor")
+def doctor():
+    return render_template("doctor.html")
+
 
 @app.route('/api/search')
 def search_plants():
@@ -87,8 +96,6 @@ def search_plants():
     ]
     return jsonify(results)
 
-# -------------------------
-# Run Flask app
-# -------------------------
+
 if __name__ == "__main__":
     app.run(debug=True)
