@@ -8,6 +8,8 @@ const navLinks = document.querySelector(".nav-links");
 const searchInput = document.querySelector(".nav-search input");
 const searchButton = document.querySelector(".nav-search button");
 const shopSection = document.querySelector(".shop-section");
+// Save the initial shop section HTML so we can restore it after searches
+const initialShopHTML = shopSection ? shopSection.innerHTML : "";
 
 function openPlantModal(box) {
   document.getElementById("plant-name").innerText = box.dataset.name;
@@ -111,4 +113,35 @@ shopSection.addEventListener("click", (e) => {
   const box = e.target.closest(".box");
   if (!box) return;
   openPlantModal(box);
+});
+
+// Intercept navigation links in the header that point to in-page anchors
+// and perform a smooth scroll instead of letting the browser jump/refresh.
+document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+  // don't override modal/open-popup links which use data-modal-id
+  if (link.classList.contains('open-popup-link')) return;
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const hash = link.getAttribute('href');
+
+    // If user clicks Home, restore the original shop content (undo search)
+    if (hash === '#home-section' && shopSection) {
+      // close any open modals
+      try { closeAllModals(); } catch (e) {}
+      // restore initial content and clear search input
+      shopSection.innerHTML = initialShopHTML;
+      if (searchInput) searchInput.value = '';
+    }
+
+    try {
+      const target = document.querySelector(hash);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    } catch (err) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
 });
