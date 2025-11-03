@@ -145,3 +145,48 @@ document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
     }
   });
 });
+
+ const toggleBtn = document.getElementById("chat-toggle");
+    const chatbot = document.getElementById("chatbot");
+    const sendBtn = document.getElementById("send-btn");
+    const userInput = document.getElementById("user-input");
+    const chatBody = document.getElementById("chat-body");
+
+    toggleBtn.addEventListener("click", () => {
+      chatbot.style.display = chatbot.style.display === "flex" ? "none" : "flex";
+    });
+
+    sendBtn.addEventListener("click", sendMessage);
+    userInput.addEventListener("keypress", e => {
+      if (e.key === "Enter") sendMessage();
+    });
+
+    function appendMessage(content, className) {
+      const msg = document.createElement("div");
+      msg.classList.add("chat-message", className);
+      msg.textContent = content;
+      chatBody.appendChild(msg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    async function sendMessage() {
+      const text = userInput.value.trim();
+      if (!text) return;
+      appendMessage(text, "user-msg");
+      userInput.value = "";
+
+      appendMessage("Thinking...", "bot-msg");
+
+      const response = await fetch("/ask", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ message: text })
+      });
+
+      const data = await response.json();
+      const botMessages = document.querySelectorAll(".bot-msg");
+      botMessages[botMessages.length - 1].remove();
+
+      appendMessage(data.reply, "bot-msg");
+    }
+
