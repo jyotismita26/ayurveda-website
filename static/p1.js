@@ -164,7 +164,11 @@ document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
     function appendMessage(content, className) {
       const msg = document.createElement("div");
       msg.classList.add("chat-message", className);
-      msg.textContent = content;
+      
+      // Safely set the content
+      const textNode = document.createTextNode(content);
+      msg.appendChild(textNode);
+      
       chatBody.appendChild(msg);
       chatBody.scrollTop = chatBody.scrollHeight;
     }
@@ -172,21 +176,63 @@ document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
     async function sendMessage() {
       const text = userInput.value.trim();
       if (!text) return;
-      appendMessage(text, "user-msg");
+      
+      // Disable input and button while processing
+      userInput.disabled = true;
+      sendBtn.disabled = true;
+      
+      // Clear input and show user message
       userInput.value = "";
+      appendMessage(text, "user-msg");
 
-      appendMessage("Thinking...", "bot-msg");
+      // Show thinking message
+      const thinkingMsg = document.createElement("div");
+      thinkingMsg.classList.add("chat-message", "bot-msg", "thinking");
+      thinkingMsg.innerHTML = `
+        <div class="typing-indicator">
+          <span></span><span></span><span></span>
+        </div>`;
+      chatBody.appendChild(thinkingMsg);
+      chatBody.scrollTop = chatBody.scrollHeight;
 
-      const response = await fetch("/ask", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ message: text })
-      });
+      try {
+        console.log("Sending message to server:", text);  // Debug log
+        const response = await fetch("/chat", {
+          method: "POST",
+          headers: { 
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({ message: text })
+        });
 
-      const data = await response.json();
-      const botMessages = document.querySelectorAll(".bot-msg");
-      botMessages[botMessages.length - 1].remove();
-
-      appendMessage(data.reply, "bot-msg");
+        console.log("Server response status:", response.status);  // Debug log
+        
+        const data = await response.json();
+        console.log("Server response data:", data);  // Debug log
+        
+        // Remove thinking message
+        thinkingMsg.remove();
+        
+        if (response.ok && data.reply) {
+          appendMessage(data.reply, "bot-msg");
+        } else {
+          throw new Error(data.reply || "No response from server");
+        }
+      } catch (error) {
+        console.error("Chat error:", error);
+        // Remove thinking message
+        thinkingMsg.remove();
+        // Show error message to user
+        appendMessage(
+          "I'm having trouble connecting to the AI. Please check your API key and try again.", 
+          "bot-msg error"
+        );
+      } finally {
+        // Re-enable input and button
+        userInput.disabled = false;
+        sendBtn.disabled = false;
+        userInput.focus();
+      }
     }
 
